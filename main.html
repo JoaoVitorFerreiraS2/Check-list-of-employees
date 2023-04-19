@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Verificar Funcionários do Sistema</title>
+  </head>
+  <body>
+    <div id="app">
+      <form>
+        <label for="funcionarios">Funcionários:</label><br>
+        <textarea id="funcionarios" name="funcionarios" v-model="funcionariosInput"></textarea><br>
+
+        <label for="usuarios">Usuários do Sistema:</label><br>
+        <textarea id="usuarios" name="usuarios" v-model="usuariosInput" ></textarea><br>
+
+        <button @click.prevent="verificarFuncionarios">Verificar Funcionários</button>
+      </form>
+
+      <div v-if="funcionariosDoSistema.length > 0">
+        <h2>Funcionários do Sistema:</h2>
+        <ul>
+          <li v-for="funcionario in funcionariosDoSistema">{{ funcionario }}</li>
+        </ul>
+        <button @click.prevent="downloadFuncionarios">Download em TXT</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
